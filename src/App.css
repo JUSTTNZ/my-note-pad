@@ -1,38 +1,176 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+/* GLOBAL STYLES */
+body,
 .App {
-  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 16px;
+  background-color: #333; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: #ccb400;
+  font-size: 22px;
+  transition: color 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:hover {
+  color: #ffe100;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* SIDEBAR STYLES */
+.app-sidebar {
+  width: 30%;
+  height: 100vh;
+  border-right: 1px solid #ddd;
+}
+
+.app-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+}
+.app-sidebar-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #fff;
+}
+
+.app-sidebar-notes {
+  height: calc(100vh - 78px);
+  overflow-y: scroll;
+}
+
+/* Modified sidebar note styling */
+.app-sidebar-note {
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.app-sidebar-note:hover {
+  background: #444;
+}
+
+/* Different background colors for sidebar notes */
+.app-sidebar-note:nth-child(odd) {
+  background-color: #ff8c00; /* Orange */
+}
+
+.app-sidebar-note:nth-child(even) {
+  background-color: #4169e1; /* Royal Blue */
+}
+
+.app-sidebar-note.active {
+  background: #08c;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar-note-title {
+  display: flex;
+  justify-content: space-between;
+}
+.app-sidebar-note button {
+  color: crimson;
+}
+.app-sidebar-note p {
+  color: #ccc;
+}
+.app-sidebar-note small {
+  display: block;
+  color: #999;
+  font-size: 14px; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* NOTE EDITOR/PREVIEW (MAIN) STYLES */
+
+.app-main {
+  width: 70%;
+  height: 100vh;
 }
+.app-main-note-edit,
+.app-main-note-preview {
+  height: 50vh;
+}
+
+.no-active-note {
+  width: 70%;
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+  font-size: 2rem;
+  color: #999;
+}
+
+/* Editing */
+.app-main-note-edit {
+  padding: 20px; 
+}
+
+.app-main-note-edit input,
+textarea {
+  display: block;
+  border: 1px solid #ddd;
+  margin-bottom: 16px; 
+  width: 100%;
+  height: calc(50vh - 120px);
+  padding: 8px;
+  resize: none;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: #444;
+  color: #fff;
+}
+
+.app-main-note-edit input::placeholder,
+textarea::placeholder {
+  color: #ccc;
+  transition: color 0.3s ease; 
+}
+
+.app-main-note-edit input:focus::placeholder,
+textarea:focus::placeholder {
+  color: transparent;
+}
+
+.app-main-note-edit input {
+  height: 40px; 
+  font-size: 1.8rem; 
+}
+
+/* Preview */
+.app-main-note-preview {
+  border-top: 1px solid #ddd;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.preview-title {
+  padding: 20px 20px 0; 
+  margin: 0;
+  font-size: 24px;
+  color: #fff; 
+}
+
+.markdown-preview {
+  padding: 0 20px 20px; 
+  font-size: 1rem;
+  line-height: 1.5; 
+  color: #ccc;
+}
+
