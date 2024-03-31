@@ -174,3 +174,21 @@ textarea:focus::placeholder {
   color: #ccc;
 }
 
+/* Media Query for Responsive Styling */
+@media screen and (max-width: 768px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .app-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    height: auto;
+  }
+
+  .app-main {
+    width: 100%;
+    height: auto;
+  }
+}
